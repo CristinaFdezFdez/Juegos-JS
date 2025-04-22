@@ -1,0 +1,24 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f8ff;
+  }
+  
+  input[type="text"] {
+    font-size: 20px;
+    text-align: center;
+    width: 50px;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+  
+  #palabra-parcial {
+    font-size: 24px;
+    letter-spacing: 8px;
+  }
+  
