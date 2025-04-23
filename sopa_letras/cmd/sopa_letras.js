@@ -52,4 +52,20 @@ function imprimirConsola() {
     process.stdout.write(`Puntos ganados: ${puntos}\n`);
 }
 
+//Función para buscar palabras
+function buscarPalabras() {
+    for (let fila = 0; fila < SIZE; fila++) {
+        const filaTexto = sopa[fila].join("");
+        const index = filaTexto.indexOf(palabra);
+        if (index !== -1) {
+            //Palabra encontrada
+            for (let i = 0; i < palabra.length; i++) {
+                sopa[fila][index + i] = palabra[i].toUpperCase();
+            }
+            return true;
+        }
+    }
+    return false;
+};
+
 imprimirConsola();
