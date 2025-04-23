@@ -100,7 +100,6 @@ function adivinarLetra() {
   }
 }
 // Eventos: click y tecla enter
-document.querySelector('button').addEventListener('click', adivinarLetra);
 document.getElementById('input-letra').addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     adivinarLetra();
