@@ -20,6 +20,7 @@ const teclado = createInterface({
 });
 
 //Función para insertar palabras en la sopa horizontalmente
+
 function insertarPalabras() {
     for (let palabra of palabras) {
         let fila = Math.floor(Math.random() * SIZE);
@@ -40,6 +41,7 @@ function insertarPalabras() {
 }
 
 insertarPalabras();
+
 
 // Función para mostrar la sopa por consola 
 function imprimirConsola() {
