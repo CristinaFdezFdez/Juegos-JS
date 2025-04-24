@@ -27,7 +27,7 @@ const teclado = createInterface({
 
 function insertarPalabras() {
     for (let palabra of palabras) {
-        let fila = Math.floor(Math.random() * SIZE);
+        let fila = Math.floor(Math.random() * SIZE -1);
         let col = Math.floor(Math.random() * (SIZE - palabra.length));
 
         // Insertamos la palabra
@@ -49,8 +49,8 @@ insertarPalabras();
 // Función para mostrar la sopa por consola 
 function imprimirConsola() {
     process.stdout.write("\x1Bc"); // Limpia la pantalla
-    process.stdout.write("\nSOPA DE LETRAS\n");
-    process.stdout.write("-------------------\n");
+    process.stdout.write("\n\x1B[33mSOPA DE LETRAS\x1B[0m\n");
+    process.stdout.write("\x1B[33m-------------------\x1B[0m\n");
 
     for (let i = 0; i < SIZE; i++) {
         for (let j = 0; j < SIZE; j++) {
@@ -62,9 +62,9 @@ function imprimirConsola() {
         }
         process.stdout.write("\n");
     }
-    process.stdout.write("\nPalabras falladas: " + palabrasFalladas.join(", ") + "\n");
-    process.stdout.write("\nPalabras acertadas: " + palabrasAcertadas.join(", ") + "\n");
-    process.stdout.write(`\nPuntos: ${puntos}\n`);
+    process.stdout.write("\n\x1B[31mPalabras falladas: " + palabrasFalladas.join(", ") + "\x1B[0m\n");
+    process.stdout.write("\n\x1B[32mPalabras acertadas: " + palabrasAcertadas.join(", ") + "\x1B[0m\n");
+    process.stdout.write(`\n\x1B[36mPuntos: ${puntos}\x1B[0m\n`);
 }
 
 //Función para buscar palabras
@@ -117,6 +117,14 @@ function iniciarJuego(){
             puntos += palabra.length;
             console.log(`¡Correcto! +${palabra.length} puntos`);
             palabrasAcertadas.push(palabra);
+
+            if (palabrasAcertadas.length === palabras.length) {
+                console.log("\x1B[32m¡Felicidades! Has encontrado todas las palabras.\x1B[0m");
+                console.log(`\x1B[34mTu puntuación final es: ${puntos} puntos\x1B[0m`);
+                console.log("\x1B[35mHas demostrado ser un verdadero/a experto/a en sopas de letras.\x1B[0m");
+                teclado.close();
+                return;
+              }              
 
         } else {
             puntos = Math.max(0, puntos - palabra.length);

@@ -39,14 +39,14 @@ let letrasAdivinadas = [];
 // Lista para guardar la palabra parcialmente adivinada
 let palabraParcial = new Array(palabra.length).fill('_');
 
-console.log(`¡Bienvenido al juego! La palabra tiene ${palabra.length} letras.`);
-console.log(`Tienes ${oportunidades} oportunidades.`);
+console.log(`\x1B[32m¡Bienvenido al juego! La palabra tiene ${palabra.length} letras.\x1B[0m`);
+console.log(`\x1B[34mTienes ${oportunidades} oportunidades.\x1B[0m`);
 
 // Función para pedir letras al jugador
 function pedirLetra() {
   // Si gastas todas las oportunidades, termina el juego
   if (intentos >= oportunidades) {
-    console.log(`¡Fin del juego! La palabra era: ${palabra}`);
+    console.log(`\x1B[31m¡Fin del juego! La palabra era: ${palabra}\x1B[0m`);
     entrada.close();
     return;
   }
@@ -57,7 +57,7 @@ function pedirLetra() {
 
     // Si la letra ya fue usada, se le avisa al jugador
     if (letrasAdivinadas.includes(letra)) {
-      console.log("Ya has probado esa letra.");
+      console.log(`\x1B[33mYa has probado esa letra.\x1B[0m`);
     } else {
       // Si es nueva, se guarda en la lista de letras usadas
       letrasAdivinadas.push(letra);
@@ -77,11 +77,11 @@ function pedirLetra() {
           }
         }
 
-        console.log(`¡Bien! La letra "${letra}" está en la palabra. +${cantidad} puntos`);
+        console.log(`\x1B[32m¡Bien! La letra "${letra}" está en la palabra. +${cantidad} puntos\x1B[0m`);
       } else {
         // Si no está, se resta un punto (sin bajar de 0)
         marcador = Math.max(0, marcador - 1);
-        console.log(`La letra "${letra}" no está en la palabra. -1 punto`);
+        console.log(`\x1B[31mLa letra "${letra}" no está en la palabra. -1 punto\x1B[0m`);
       }
 
       // Aumentamos el número de intentos
@@ -89,11 +89,12 @@ function pedirLetra() {
     }
 
     // Mostramos el estado actual del juego
-    console.log(`Marcador: ${marcador} | Intentos usados: ${intentos}/${oportunidades}`);
+    console.log(`\x1B[35mMarcador: ${marcador} | Intentos usados: ${intentos}/${oportunidades}\x1B[0m`);
+    console.log(`\x1B[33mPalabra: ${palabraParcial.join(' ')}\x1B[0m`);
 
     // Verificamos si el jugador ha adivinado la palabra
     if (!palabraParcial.includes('_')) {
-      console.log(`¡Felicidades! Has adivinado la palabra: ${palabra}`);
+      console.log(`\x1B[32m¡Felicidades! Has adivinado la palabra: ${palabra}.Puntuación final: ${marcador}\x1B[0m`);
       entrada.close();
       return;
     }
