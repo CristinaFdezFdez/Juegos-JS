@@ -45,9 +45,7 @@ input, button {
     padding: 8px;
     font-size: 16px;
 }
-.encontrada {
-    background-color: lightgreen !important;
-}
+
 ul{
     list-style: none;
 }
