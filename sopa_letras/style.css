@@ -56,3 +56,8 @@ ul{
 #palabras-encontradas{
     color: rgb(17, 116, 17);
 }
+a {
+    text-decoration: none;
+    color: #007acc;
+    font-weight: bold;
+  }

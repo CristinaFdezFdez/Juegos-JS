@@ -84,3 +84,8 @@ button:hover {
   margin: 20px 0;
   color: #2c3e50;
 }
+a {
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+}
