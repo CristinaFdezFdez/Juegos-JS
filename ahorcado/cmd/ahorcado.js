@@ -39,8 +39,11 @@ let letrasAdivinadas = [];
 // Lista para guardar la palabra parcialmente adivinada
 let palabraParcial = new Array(palabra.length).fill('_');
 
-console.log(`\x1B[32m¡Bienvenido al juego! La palabra tiene ${palabra.length} letras.\x1B[0m`);
-console.log(`\x1B[34mTienes ${oportunidades} oportunidades.\x1B[0m`);
+// Mensajes del juego 
+console.clear();
+console.log(`\x1b[36m=== JUEGO DEL AHORCADO ===\x1b[0m`);
+console.log(`\x1B[36m¡Bienvenido al juego! La palabra tiene ${palabra.length} letras.\x1B[0m`);
+console.log(`\x1B[36mTienes ${oportunidades} oportunidades.\x1B[0m`);
 
 // Función para pedir letras al jugador
 function pedirLetra() {
@@ -89,8 +92,8 @@ function pedirLetra() {
     }
 
     // Mostramos el estado actual del juego
-    console.log(`\x1B[35mMarcador: ${marcador} | Intentos usados: ${intentos}/${oportunidades}\x1B[0m`);
-    console.log(`\x1B[33mPalabra: ${palabraParcial.join(' ')}\x1B[0m`);
+    console.log(`\x1B[36mMarcador: ${marcador} | Intentos usados: ${intentos}/${oportunidades}\x1B[0m`);
+    console.log(`\x1B[36mPalabra: ${palabraParcial.join(' ')}\x1B[0m`);
 
     // Verificamos si el jugador ha adivinado la palabra
     if (!palabraParcial.includes('_')) {
