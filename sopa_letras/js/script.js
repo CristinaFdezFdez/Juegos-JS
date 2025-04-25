@@ -7,9 +7,8 @@ let puntos = 0;
 const palabrasAcertadas = [];
 const palabrasFalladas = []; 
 
-/**
- * Función que genera la sopa de letras
- */
+
+// Función que genera la sopa de letras
 function generarSopa() {
     // Inicializa la matriz de la sopa de letras con null
     sopa = Array.from({ length: SIZE }, () => Array(SIZE).fill(null));
@@ -33,7 +32,7 @@ function generarSopa() {
                     dx = -1; dy = 0;
                     fila = Math.floor(Math.random() * SIZE);
                     col = Math.floor(Math.random() * (SIZE - palabra.length)) + palabra.length;
-                    palabra = palabra.split("").reverse().join(""); // invertir
+                    palabra = palabra.split("").reverse().join(""); 
                     break;
                 case 2: // Vertical ↓
                     dx = 0; dy = 1;
@@ -91,9 +90,9 @@ function generarSopa() {
     renderizarSopa();
 }
 
-/**
- * Función que renderiza la sopa de letras en el HTML
- */
+
+// Función que renderiza la sopa de letras en el HTML
+
 function renderizarSopa() {
     const container = document.getElementById("sopa-de-letras-container");
     container.innerHTML = "";
@@ -118,11 +117,8 @@ function renderizarSopa() {
 }
 
 
-/**
- * Función que busca una palabra en la sopa de letras
- * @param {string} palabra - La palabra a buscar
- * @returns {boolean} - True si la palabra se encuentra en la sopa de letras, false en caso contrario
- */
+// Función que busca una palabra en la sopa de letras
+
 function buscarPalabras(palabra) {
     const direcciones = [
         { dx: 1, dy: 0 },   // derecha 
@@ -210,6 +206,13 @@ document.getElementById("enviar").addEventListener("click", () => {
         mensaje.style.fontWeight = "bold";
         mensaje.style.color = "blue";
         document.getElementById("mensaje").appendChild(mensaje);
+    }
+});
+
+// Permitir enviar palabra al presionar Enter
+document.getElementById("entrada").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        document.getElementById("enviar").click();
     }
 });
 
