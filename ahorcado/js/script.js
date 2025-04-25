@@ -26,7 +26,7 @@ let palabraParcial = Array(palabra.length).fill('_'); // Muestra la palabra parc
 
 // Muestra el estado inicial en pantalla
 document.getElementById('palabra-parcial').textContent = palabraParcial.join(' ');
-document.getElementById('max-intentos').textContent = oportunidades;
+document.getElementById('max-intentos').textContent = (`${oportunidades}`);
 
 // Función que se ejecuta al adivinar una letra
 function adivinarLetra() {
@@ -85,6 +85,7 @@ function adivinarLetra() {
 
   // Actualiza el estado actual
   document.getElementById('palabra-parcial').textContent = palabraParcial.join(' ');
+  document.getElementById('max-intentos').textContent = (`${oportunidades}/${intentos}`);
   document.getElementById('intentos').textContent = intentos;
   document.getElementById('marcador').textContent = marcador;
 
