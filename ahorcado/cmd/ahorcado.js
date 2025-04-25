@@ -56,9 +56,9 @@ function pedirLetra() {
 
   // Preguntamos una letra
   entrada.question("Introduce una letra: ", (letra) => {
-    letra = letra.toLowerCase(); // Aseguramos que sea minúscula
+    letra = letra.toLowerCase(); // minúscula
 
-    // Si la letra ya fue usada, se le avisa al jugador
+    // Si la letra ha sido usada se avisa
     if (letrasAdivinadas.includes(letra)) {
       console.log(`\x1B[33mYa has probado esa letra.\x1B[0m`);
     } else {
